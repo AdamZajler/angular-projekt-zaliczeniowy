@@ -8,6 +8,14 @@ services:
       - ./client:/project
       - /project/node_modules
 
+  api:
+    build:
+      context: server
+    ports:
+      - 8000:8000
+    volumes:
+      - ./server:/app
+
   postgres:
     image: postgres:15-alpine
     ports:
@@ -19,10 +27,12 @@ services:
       - POSTGRES_DB=nbp_viewer
       - POSTGRES_USER=postgres
 
+
   adminer:
     image: adminer
     restart: always
     ports:
       - 8080:8080
+
 volumes:
   postgres_data:

@@ -4,14 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf4d5813-4dd5-4a05-8eb4-87a1d26cf7cb" name="Changes" comment="" />
+    <list default="true" id="cf4d5813-4dd5-4a05-8eb4-87a1d26cf7cb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/client/client/src/consts/availableCurrencies.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/client/src/helpers/getCurrentDate.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/client/src/helpers/getFirstAndLastDayOfCurrentYear.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/client/src/helpers/getNBPApiUrl.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/app/main.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/app/querise.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/client/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/client/client/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/client/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/client/src/app/app.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/client/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/client/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/client/src/app/services/nbp.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/client/src/app/services/nbp.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/client" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -24,15 +45,21 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "<unknown>",
+    "git-widget-placeholder": "871f3c0a",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Users\\Adam\\Desktop\\STUDIA\\angular-proj-zal\\client\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Adam\Desktop\STUDIA\angular-proj-zal\server" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>

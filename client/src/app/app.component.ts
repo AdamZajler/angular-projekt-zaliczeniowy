@@ -21,10 +21,17 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     // Przykładowy zakres dat: od 2023-01-01 do 2023-12-31
-    this.nbpService.getRates('2024-01-01', new Date().toISOString().split('T')[0]
+    this.nbpService.getRates('2024-01-01', new Date().toISOString().split('T')[0], 'eur'
     ).subscribe(data => {
       this.rates = data;
       console.log(this.rates);
     });
+
+    this.nbpService.getRatesFromDB("asd").subscribe(data => {
+      console.log("TEST", data);
+    });
+
+    this.nbpService.synchronizeAllRatesInDB();
+
   }
 }

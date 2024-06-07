@@ -1,0 +1,12 @@
+// Tworzenie tabeli
+
+CREATE TABLE kursy (
+    id SERIAL PRIMARY KEY,
+    nazwa_waluty TEXT NOT NULL,
+    data_synchronizacji TEXT NOT NULL,
+    kurs TEXT NOT NULL,
+    UNIQUE (nazwa_waluty, data_synchronizacji)
+);
+
+
+ALTER TABLE kursy ADD CONSTRAINT kursy_unique UNIQUE (nazwa_waluty, data_synchronizacji);
