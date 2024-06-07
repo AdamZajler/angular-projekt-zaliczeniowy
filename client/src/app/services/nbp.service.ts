@@ -11,13 +11,12 @@ import {availableCurrencies} from "../../consts/availableCurrencies";
 export class NbpService {
   constructor(private http: HttpClient) { }
 
-  // Pobieranie kursu za określony zakres dat
   getRates(startDate: string, endDate: string, crr: string): Observable<any> {
     const url = `${getNBPApiUrl(crr)}/${startDate}/${endDate}/?format=json`;
     return this.http.get<any>(url);
   }
 
-  async synchronizeAllRatesInDB() {
+  async synchronizeAllRatesInDB(currency: string, callback?: (data:any) => void) {
     const { firstDay, lastDay } = getFirstAndLastDayOfCurrentYear();
 
     const rates = await Promise.all(availableCurrencies.map((currency) => {
@@ -32,8 +31,7 @@ export class NbpService {
 
     await firstValueFrom(this.postRatesToDB(ratesParsed));
 
-    console.log("RATES: ", rates);
-    console.log("ratesParsed: ", ratesParsed);
+    callback?.(ratesParsed.filter((c) => c.nazwa_waluty === currency));
   }
 
   getRatesFromDB(type: string): Observable<any> {

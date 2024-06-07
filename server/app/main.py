@@ -15,11 +15,26 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# Połączenie z bazą danych
 async def connect_to_db():
     return await asyncpg.connect(user='postgres', password='db_password', database='nbp_viewer', host='postgres')
 
-# Pobieranie danych z bazy danych
+async def create_table_if_not_exists():
+    conn = await connect_to_db()
+    query = """
+    CREATE TABLE IF NOT EXISTS kursy (
+        id SERIAL PRIMARY KEY,
+        nazwa_waluty TEXT NOT NULL,
+        data_synchronizacji TEXT NOT NULL,
+        kurs TEXT NOT NULL
+    );
+    """
+    await conn.execute(query)
+    await conn.close()
+
+@app.on_event("startup")
+async def on_startup():
+    await create_table_if_not_exists()
+
 async def get_data_from_db(currency_type: str = Query('pln')):
     conn = await connect_to_db()
     query = f"SELECT * FROM kursy WHERE nazwa_waluty=UPPER('{currency_type}');"
@@ -27,7 +42,6 @@ async def get_data_from_db(currency_type: str = Query('pln')):
     await conn.close()
     return rows
 
-# Zapis danych do bazy danych
 async def save_data_to_db(data: List[dict]):
     conn = await connect_to_db()
     try:
@@ -45,20 +59,17 @@ async def save_data_to_db(data: List[dict]):
         raise HTTPException(status_code=500, detail=str(e))
     await conn.close()
 
-# Model danych dla waluty
 class CurrencyRate(BaseModel):
     id: int = None  # Optional ID field for existing records
     nazwa_waluty: str
     data_synchronizacji: str
     kurs: str
 
-# Definicja endpointu
 @app.get("/data/")
 async def get_data(currency_type: str = Query('pln')):
     data = await get_data_from_db(currency_type)
     return data
 
-# Endpoint do zapisywania danych
 @app.post("/data/")
 async def post_data(data: List[CurrencyRate]):
     await save_data_to_db([record.dict() for record in data])

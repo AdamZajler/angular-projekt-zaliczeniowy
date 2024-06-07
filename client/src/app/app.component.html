@@ -7,7 +7,11 @@
     </select>
   </div>
   <h1 class="title">KURS {{ title }}</h1>
-  <div class="wrapper">
+  <div class="error" *ngIf="isError">
+    <h3>Wystąpił błąd pobierania danych!</h3>
+    <button (click)="synchronizeRates()">Synchronizuj dane!</button>
+  </div>
+  <div class="wrapper" *ngIf="!isError">
     <table>
       <tr>
         <th>Ostatni dzień</th>

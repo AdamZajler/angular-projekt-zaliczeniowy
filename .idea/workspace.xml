@@ -6,7 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="cf4d5813-4dd5-4a05-8eb4-87a1d26cf7cb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/app/services/nbp.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/app/services/nbp.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/app/querise.txt" beforeDir="false" afterPath="$PROJECT_DIR$/server/app/querise.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +22,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/client" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
@@ -34,7 +35,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "<unknown>",
+    "git-widget-placeholder": "d751a1af",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -66,6 +67,7 @@
       <updated>1717604424971</updated>
       <workItem from="1717604427353" duration="1231000" />
       <workItem from="1717750714450" duration="1739000" />
+      <workItem from="1717792238914" duration="3250000" />
     </task>
     <servers />
   </component>
