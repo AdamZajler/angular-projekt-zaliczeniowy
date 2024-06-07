@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import {firstValueFrom, Observable} from 'rxjs';
 import {getNBPApiUrl} from "../../helpers/getNBPApiUrl";
 import {getFirstAndLastDayOfCurrentYear} from "../../helpers/getFirstAndLastDayOfCurrentYear";
@@ -38,7 +38,8 @@ export class NbpService {
 
   getRatesFromDB(type: string): Observable<any> {
     const url = `http://localhost:8000/data/`;
-    return this.http.get<any>(url);
+    const params = new HttpParams().set('currency_type', type);
+    return this.http.get<any>(url, { params });
   }
 
   postRatesToDB(data: any[]): Observable<any> {

@@ -1,1 +1,1 @@
-export const availableCurrencies = ["EUR", "GBP"];
+export const availableCurrencies = ["EUR", "GBP", "USD"];
