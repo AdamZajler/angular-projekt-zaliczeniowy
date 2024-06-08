@@ -7,7 +7,7 @@ from datetime import datetime
 
 app = FastAPI()
 
-# Dodanie CORS-a
+# Added CORS allow all origins
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],
@@ -16,7 +16,8 @@ app.add_middleware(
 )
 
 async def connect_to_db():
-    return await asyncpg.connect(user='postgres', password='db_password', database='nbp_viewer', host='postgres')
+    return await asyncpg.connect(user='postgres', password='db_password',
+    database='nbp_viewer', host='postgres')
 
 async def create_table_if_not_exists():
     conn = await connect_to_db()
@@ -31,6 +32,7 @@ async def create_table_if_not_exists():
     await conn.execute(query)
     await conn.close()
 
+# Invoke startup event to create table for new instances
 @app.on_event("startup")
 async def on_startup():
     await create_table_if_not_exists()
@@ -53,23 +55,27 @@ async def save_data_to_db(data: List[dict]):
             VALUES ($1, $2, $3);
         """
         for record in data:
-            await conn.execute(query, record['nazwa_waluty'], record['data_synchronizacji'], record['kurs'])
+            await conn.execute(query, record['nazwa_waluty'], record['data_synchronizacji'],
+            record['kurs'])
     except Exception as e:
         await conn.close()
         raise HTTPException(status_code=500, detail=str(e))
     await conn.close()
 
+# Class for currency model
 class CurrencyRate(BaseModel):
     id: int = None  # Optional ID field for existing records
     nazwa_waluty: str
     data_synchronizacji: str
     kurs: str
 
+# GET
 @app.get("/data/")
 async def get_data(currency_type: str = Query('pln')):
     data = await get_data_from_db(currency_type)
     return data
 
+# SET
 @app.post("/data/")
 async def post_data(data: List[CurrencyRate]):
     await save_data_to_db([record.dict() for record in data])

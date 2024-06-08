@@ -1,8 +1,0 @@
-// Tworzenie tabeli
-
-CREATE TABLE IF NOT EXISTS kursy (
-        id SERIAL PRIMARY KEY,
-        nazwa_waluty TEXT NOT NULL,
-        data_synchronizacji TEXT NOT NULL,
-        kurs TEXT NOT NULL
-);
